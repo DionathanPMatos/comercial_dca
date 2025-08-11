@@ -75,6 +75,18 @@ a {
     z-index: 100;
     border-bottom: 1px solid #e9ecef;
 }
+/* Header Flag Language*/
+.nav .flag {
+    margin-left: 4px;  /* espaço horizontal */
+    margin-right: 0;   /* evita espaçamento extra */
+    padding: 0;        /* remove padding extra do link */
+    display: inline-block;
+}
+
+.nav .flag img,
+.nav .flag::before {
+    vertical-align: middle; /* centraliza verticalmente */
+}
 
 .banner {
     width: 100%;
