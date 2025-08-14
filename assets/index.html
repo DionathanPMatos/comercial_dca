@@ -114,8 +114,7 @@
                                     Produtos</a></li>
                             <li><a href="https://deltacable-my.sharepoint.com/my?id=%2Fpersonal%2Fdionathan_matos_dca_com_br%2FDocuments%2FARQUIVOS%20UTEIS%2FTERMOS%20DE%20REFERENCIAS"
                                     target="_blank" class="category-link">Termos de Referências</a></li>
-                            <li><a href="https://rma-dev.dca.com.br/" target="_blank"
-                                    class="category-link">RMA</a></li>
+                            <li><a href="https://rma-dev.dca.com.br/" target="_blank" class="category-link">RMA</a></li>
 
                         </ul>
                     </li>
@@ -239,6 +238,11 @@
                                     estruturado</a></li>
                         </ul>
                     </li>
+                    <button onclick="login()">Entrar com Microsoft</button>
+                        <div id="user-info"></div>
+                        <h2>Suas listas</h2>
+                        <ul id="todo-lists"></ul>
+                    
                 </ul>
             </div>
         </aside>
@@ -256,11 +260,11 @@
                                 <img src="assets/imagens/exemplo2.png" alt="Logo" class="category-card">
                             </div>
                         </div>
-                    
 
 
-                        </div>
+
                     </div>
+                </div>
             </section>
             <!-- BANNER -->
             <section id="banner" class="banner-section">
@@ -341,6 +345,8 @@
 
     <script src="script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://alcdn.msauth.net/browser/2.28.1/js/msal-browser.min.js"></script>
+
     <script>
         fetch('header.html')
             .then(res => res.text())

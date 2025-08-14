@@ -350,3 +350,42 @@ carroselNext.addEventListener('click', () => {
   }
   carroselInner.style.transform = `translateX(-${currentItem * 100}%)`;
 });
+
+/*Microsoft Todo*/
+
+const msalConfig = {
+    auth: {
+        clientId: "SEU_CLIENT_ID", // Substitua pelo seu Application ID
+        authority: "https://login.microsoftonline.com/common",
+        redirectUri: window.location.origin
+    }
+};
+
+const msalInstance = new msal.PublicClientApplication(msalConfig);
+
+function login() {
+    msalInstance.loginPopup({ scopes: ["Tasks.ReadWrite"] })
+    .then(response => {
+        document.getElementById("user-info").innerText =
+            "Logado como: " + response.account.username;
+        getTasks(response.accessToken);
+    })
+    .catch(err => console.error(err));
+}
+
+function getTasks(token) {
+    fetch("https://graph.microsoft.com/v1.0/me/todo/lists", {
+        headers: { "Authorization": `Bearer ${token}` }
+    })
+    .then(res => res.json())
+    .then(data => {
+        let ul = document.getElementById("todo-lists");
+        ul.innerHTML = "";
+        data.value.forEach(list => {
+            let li = document.createElement("li");
+            li.textContent = list.displayName;
+            ul.appendChild(li);
+        });
+    })
+    .catch(err => console.error(err));
+}
