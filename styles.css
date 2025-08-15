@@ -902,7 +902,14 @@ CARROSEL (ANIVERSARIANTES)
     padding: 2rem 0;
     background: #343a40;
 }
-
+.container-footer {
+    max-width: 100%;
+    margin: 0 15%;
+    padding: 0 20px;
+   
+    z-index: 0;
+    background-color: #343a40;
+}
 .footer-section h4 {
     font-weight: 600;
     margin-bottom: 1rem;
